@@ -257,8 +257,8 @@ namespace CameraViewer1
             L1.MyImg = img;
 
             // string filename = DateTime.Now.ToString("MMddHHmmssfff");
-            string filename = String.Format("{0:00000000}-{1}-{2}", frameid, timestamp.ToString(), status==VmbFrameStatusType.VmbFrameStatusComplete?"OK":"NG");
-            filename = ImgSavePath + "" + filename  + ".bmp";
+            string filename = String.Format("{0:D10}-{1:D20}-{2}", frameid, timestamp, status==VmbFrameStatusType.VmbFrameStatusComplete?"OK":"NG");
+            filename = ImgSavePath + "" + filename;
 
             L1.Timestamp = filename;
             L1.nFrameIndex = frameid;
@@ -344,13 +344,14 @@ namespace CameraViewer1
                         {
                             if (L2.status == VmbFrameStatusType.VmbFrameStatusComplete)
                             {
-                                L2.MyImg.Save(L2.Timestamp, ImageFormat.Bmp);
+
+                                L2.MyImg.Save(L2.Timestamp + ".bmp", ImageFormat.Bmp);
                             }
                             else
                             {
                                 // Black image for bad frame from camera
                                 L2.MyImg = Image.FromFile("default_error_image.png"); 
-                                L2.MyImg.Save(L2.Timestamp, ImageFormat.Bmp); 
+                                L2.MyImg.Save(L2.Timestamp + ".bmp", ImageFormat.Bmp); 
                             }
                         }
 
