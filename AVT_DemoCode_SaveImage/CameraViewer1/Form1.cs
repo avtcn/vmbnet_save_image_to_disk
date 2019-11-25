@@ -82,7 +82,8 @@ namespace CameraViewer1
             try
             {
                 Camera1 = new AVT_Cam();
-               // Camera1.m_Cam  = m_Vimba.GetCameraByID("192.168.0.45");//两种方式都可以
+                // Camera1.m_Cam  = m_Vimba.GetCameraByID("192.168.0.45");//两种方式都可以
+                Cur_CameraID = m_Vimba.Cameras[0].Id;
                 if (Cur_CameraID != null)
                 {
                     Camera1.m_Cam = m_Vimba.GetCameraByID(Cur_CameraID);
@@ -109,21 +110,23 @@ namespace CameraViewer1
                 Vimba vimba = new Vimba();
                 vimba.Startup();
                 m_Vimba = vimba;
-                m_Vimba.OnCameraListChanged += OnCameraListChange;
+                //m_Vimba.OnCameraListChanged += OnCameraListChange;
 
+                /*
                 try
                 {
-                    UpdateCameraList();
+                    //UpdateCameraList();
                 }
                 catch (Exception exception)
                 {
                     LogError("Could not update camera list. Reason: " + exception.Message);
                 }
-               // Init_Camera();
-               // updateControls();
-                
+                */
+                Init_Camera();
+                // updateControls();
+
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 LogError("Could not startup Vimba API. Reason: " + exception.Message);
             }
@@ -286,7 +289,9 @@ namespace CameraViewer1
             else
             {
                 String strIncompleteFrameMsg = String.Format("WARNING: bad image, frameid = {0}, status = {1}", frameid, status);
-                LogMessage(strIncompleteFrameMsg);
+                //LogMessage(strIncompleteFrameMsg);
+                System.Diagnostics.Debug.WriteLine(strIncompleteFrameMsg);
+                
             }
 
             //long end  = DateTime.Now.Ticks;
@@ -344,14 +349,28 @@ namespace CameraViewer1
                         {
                             if (L2.status == VmbFrameStatusType.VmbFrameStatusComplete)
                             {
+                                Emgu.CV.Structure.Bgr avgColor = new Emgu.CV.Structure.Bgr(Color.Black);
+                                /*
+                                Bitmap bmpFrame = L2.MyImg as Bitmap;
+                                Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte> image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(bmpFrame);
 
-                                L2.MyImg.Save(L2.Timestamp + ".bmp", ImageFormat.Bmp);
+                                //avgColor = image.GetAverage();
+
+                                image.Dispose();
+                                image = null;
+                                */
+                                // TODO: use seperate process to apply OpenCV algorithm for average gray value calculation
+
+                                String strPath = String.Format("{0}-{1:000.0000000}.bmp", L2.Timestamp, avgColor.Green); 
+                                L2.MyImg.Save(strPath, ImageFormat.Bmp);
                             }
                             else
                             {
                                 // Black image for bad frame from camera
                                 L2.MyImg = Image.FromFile("default_error_image.png"); 
-                                L2.MyImg.Save(L2.Timestamp + ".bmp", ImageFormat.Bmp); 
+
+                                String strPath = String.Format("{0}-{1:000.0000000}.bmp", L2.Timestamp, 0);
+                                L2.MyImg.Save(strPath, ImageFormat.Bmp); 
                             }
                         }
 
