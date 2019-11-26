@@ -204,18 +204,21 @@ namespace CameraViewer1
                 bool IsOpen= Camera1.OpenCamera();
                 if (IsOpen)
                {
-                   //-------读取相机参数到界面-----                               
-                   Cam1_ExpTime = Camera1.ReadExposureTime();
-                   trackBar1.Value = (int)Cam1_ExpTime;
+                    //-------读取相机参数到界面-----                               
+                    Cam1_ExpTime = Camera1.ReadExposureTime();
+                    trackBar1.Value = (int)Cam1_ExpTime;
 
-                   Camera1.Set_TriggerSource(1);
-                   Cam1_TriggerSource = Camera1.ReadTriggerSource();
-                   rBt_Freerun.Checked = true;//触发方式就不反馈到界面了，需要也可以
-                   LogMessage("相机打开成功！");
-                   Cur_camIsOpen = true;
-                   cB_SaveImage.Checked = true;
-               }
-               else
+                    //Keep setting as camera
+                    //Camera1.Set_TriggerSource(1);
+
+                    Cam1_TriggerSource = Camera1.ReadTriggerSource();
+                    //rBt_Freerun.Checked = true;//触发方式就不反馈到界面了，需要也可以
+
+                    LogMessage("相机打开成功！");
+                    Cur_camIsOpen = true;
+                    cB_SaveImage.Checked = true;
+                }
+                else
                {
                    LogMessage("相机打开失败，请检查IP配置");
                }
@@ -236,6 +239,12 @@ namespace CameraViewer1
         {
             if (!(Camera1.IsAcquring))
             {
+
+                Console.WriteLine("Delete all bitmaps files from path:" + ImgSavePath);
+                DirectoryInfo directory = new DirectoryInfo(ImgSavePath); 
+                //delete files:
+                directory.GetFiles("*.bmp").ToList().ForEach(f => f.Delete());
+
                 Camera1.StartAcquisition(mCam1_OnFrameReceived);//委托图像接收
                 Cur_camIsAcq = true;
                
@@ -586,6 +595,7 @@ namespace CameraViewer1
         {
             Console.WriteLine("Child Thread Start!");
 
+
             StreamWriter F = new StreamWriter(ImgSavePath + "\\result.csv", false);
             //F.WriteLine("{0}, {1}, {2}, {3}, {4}, {5}, ", "Missed Frame", idx, 0, "NG", 0, 0);
 
@@ -627,7 +637,7 @@ namespace CameraViewer1
                     for (ulong idx = frameidPrev + 1; idx < frameid; idx++)
                     {
                         Console.WriteLine("file: {0}, {1}, {2}, {3}, {4}, avg: {5}", "Missed Frame", idx, 0, "NG", 0, 0);
-                        F.WriteLine("{0}, {1}, {2}, {3}, {4}, {5}, ", "Missed Frame", idx, 0, "NG", 0, 0);
+                        F.WriteLine("{0}, {1,7}, {2,16}, {3}, {4}, {5:000.0000000000}, {6}, ", "Missed Frame", idx, 0, "NG", 0, 0, 0);
 
                     }
                 }
@@ -637,10 +647,11 @@ namespace CameraViewer1
                 {
                     image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(ImgSavePath + "\\" + nextFile);
                     Emgu.CV.Structure.Bgr avgColor = image.GetAverage();
+                    Emgu.CV.Structure.Bgr centerColor = image[image.Width/2, image.Height/2];
                     image.Dispose();
 
                     Console.WriteLine("file: {0}, {1}, {2}, {3}, {4}, avg: {5}", nextFile, frameid, timestamp, strStatus, average, avgColor.Green);
-                    F.WriteLine("{0}, {1}, {2}, {3}, {4}, {5}, ", nextFile, frameid, timestamp, strStatus, average, avgColor.Green); 
+                    F.WriteLine("{0}, {1,7}, {2,16}, {3}, {4}, {5:000.0000000000}, {6}, ", nextFile, frameid, timestamp, strStatus, average, avgColor.Green, centerColor.Green); 
                 }
 
 

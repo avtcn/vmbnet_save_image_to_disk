@@ -21,7 +21,7 @@ plot "truking-log.csv" every ::2 u 2:6 w l title "FirstFrame" lc "blue", "trukin
 set yrange [100:255]
 set ytics nomirror 
 set autoscale xy
-plot "result.csv" every ::2 u 2:6 w l title "Average Gray" lc "blue" axis x1y1, "result.csv" every ::2 u 2:3 w l title "TimeStamp" lc "red" axis x1y2
+plot "result.csv" every ::2 u 2:6 w l title "Average Gray" lc "blue" axis x1y1, "result.csv" every ::2 u 2:3 w l title "TimeStamp" lc "red" axis x1y2, "result.csv" every ::2 u 2:6 w l title "Average Gray" lc "green" axis x1y1, 
 set grid 
 set autoscale
 replot 
@@ -29,3 +29,14 @@ replot
 ```
 
 
+## Center pixel value of image
+
+```
+
+plot "result.csv" every ::2 u 2:6 w l title "Average Gray" lc "blue" axis x1y1, "result.csv" every 
+::2 u 2:3 w l title "TimeStamp" lc "red" axis x1y2, "result.csv" every ::2 u 2:7 w l title "Average Gray" lc "green" axis x1y1,   
+
+plot "result.csv" every ::2 u 2:6 w l title "Average Gray" lc "blue" axis x1y1, "result.csv" every 
+::2 u 2:3 w l title "TimeStamp" lc "red" axis x1y2, "result.csv" every ::2 u 2:7 w l title "Average Gray" lc "green" axis x1y1, 
+
+```

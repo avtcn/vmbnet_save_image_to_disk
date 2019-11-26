@@ -219,6 +219,8 @@ namespace CameraViewer1
        
         public void Set_TriggerSource(int Tri_index)
         {
+            return;
+
             if (IsOpen)
             {
                 switch (Tri_index)
