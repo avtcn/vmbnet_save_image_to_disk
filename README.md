@@ -26,6 +26,9 @@ set grid
 set autoscale
 replot 
 
+plot "result.csv" every ::2 u 2:6 w l title "Average Gray" lc "blue" axis x1y1, "result.csv" every ::2 u 2:3 w l title "TimeStamp" lc "red" axis x1y2, "result.csv" every ::2 u 2:7 w l title "Center Point Pixel" lc "green" axis x1y1,   
+
+
 ```
 
 
@@ -33,10 +36,9 @@ replot
 
 ```
 
-plot "result.csv" every ::2 u 2:6 w l title "Average Gray" lc "blue" axis x1y1, "result.csv" every 
-::2 u 2:3 w l title "TimeStamp" lc "red" axis x1y2, "result.csv" every ::2 u 2:7 w l title "Average Gray" lc "green" axis x1y1,   
+plot "result.csv" every ::2 u 2:6 w l title "Average Gray" lc "blue" axis x1y1, 
 
-plot "result.csv" every ::2 u 2:6 w l title "Average Gray" lc "blue" axis x1y1, "result.csv" every 
-::2 u 2:3 w l title "TimeStamp" lc "red" axis x1y2, "result.csv" every ::2 u 2:7 w l title "Average Gray" lc "green" axis x1y1, 
+plot "result.csv" every ::2 u 2:7 w l title "Center Point Pixel" lc "green" axis x1y1, 
+
 
 ```
