@@ -570,6 +570,97 @@ namespace CameraViewer1
                     LogError("参数异常！");
                 }               
             } 
-        }                        
+        }
+
+        private void button_images_analyze_Click(object sender, EventArgs e)
+        { 
+            Thread th = new Thread(ThreadChild);
+            Console.WriteLine("Main Thread Start!"); 
+
+            th.Start();
+
+        }
+
+
+        private void ThreadChild()
+        {
+            Console.WriteLine("Child Thread Start!");
+
+            StreamWriter F = new StreamWriter(ImgSavePath + "\\result.csv", false);
+            //F.WriteLine("{0}, {1}, {2}, {3}, {4}, {5}, ", "Missed Frame", idx, 0, "NG", 0, 0);
+
+            //C#遍历指定文件夹中的所有文件
+            DirectoryInfo TheFolder = new DirectoryInfo(ImgSavePath);
+
+            /*            //遍历文件夹
+                        foreach (DirectoryInfo NextFolder in TheFolder.GetDirectories())
+                            this.listBox1.Items.Add(NextFolder.Name);
+            */
+            ulong frameidPrev = 0;
+            //遍历文件
+            FileInfo[] files = TheFolder.GetFiles("*.bmp");
+            String[] filesName = new String[files.Length];
+            int i = 0;
+            foreach (FileInfo NextFile in files)
+            {
+                filesName[i] = NextFile.Name;
+                i++; 
+            }
+            Array.Sort(filesName);
+
+            Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte> image = null;
+            foreach (String nextFile in filesName)
+            {
+                String[] strParts = ParseFileName(nextFile);
+                ulong frameid = ulong.Parse(strParts[0]);
+                ulong timestamp = ulong.Parse(strParts[1]);
+                String strStatus = strParts[2];
+                double average = double.Parse(strParts[3]);
+
+                if (frameidPrev == 0)
+                    frameidPrev = frameid;
+
+                // 非连续的正常帧序列
+                if (frameid > 0 && frameid - frameidPrev >= 2)
+                {
+                    ulong diff = frameid - frameidPrev;
+                    for (ulong idx = frameidPrev + 1; idx < frameid; idx++)
+                    {
+                        Console.WriteLine("file: {0}, {1}, {2}, {3}, {4}, avg: {5}", "Missed Frame", idx, 0, "NG", 0, 0);
+                        F.WriteLine("{0}, {1}, {2}, {3}, {4}, {5}, ", "Missed Frame", idx, 0, "NG", 0, 0);
+
+                    }
+                }
+
+
+                // 
+                {
+                    image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(ImgSavePath + "\\" + nextFile);
+                    Emgu.CV.Structure.Bgr avgColor = image.GetAverage();
+                    image.Dispose();
+
+                    Console.WriteLine("file: {0}, {1}, {2}, {3}, {4}, avg: {5}", nextFile, frameid, timestamp, strStatus, average, avgColor.Green);
+                    F.WriteLine("{0}, {1}, {2}, {3}, {4}, {5}, ", nextFile, frameid, timestamp, strStatus, average, avgColor.Green); 
+                }
+
+
+                frameidPrev = frameid;
+            }
+
+            image = null;
+
+            F.Close();
+            Console.WriteLine("Child Thread Ended!");
+        }
+
+        private String[] ParseFileName(String name)
+        {
+            String[] strParts = { "0", "0", "NG", "0" };
+            String filename = name.Replace(".bmp", "");
+            return filename.Split('-'); 
+        }
+
+
     }
+
 }
