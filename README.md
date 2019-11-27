@@ -15,6 +15,7 @@ plot "truking-log.csv" every ::2 u 2:6 w l title "FirstFrame" lc "blue", "trukin
 # Show data in Plot from result.csv
 
 
+## Average Gray vs TimeStamp vs Center Pixel
 
 ```
 
@@ -38,7 +39,11 @@ plot "result.csv" every ::2 u 2:6 w l title "Average Gray" lc "blue" axis x1y1, 
 
 plot "result.csv" every ::2 u 2:6 w l title "Average Gray" lc "blue" axis x1y1, 
 
+
 plot "result.csv" every ::2 u 2:7 w l title "Center Point Pixel" lc "green" axis x1y1, 
+
+
+plot "result.csv" every ::2 u 2:6 w l title "Average Gray" lc "blue" axis x1y1, "result.csv" every ::2 u 2:7 w l title "Center Point Pixel" lc "green" axis x1y1, 
 
 
 ```
