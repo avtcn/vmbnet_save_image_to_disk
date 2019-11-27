@@ -354,7 +354,7 @@ namespace CameraViewer1
                     lock (lockSavemode)
                     {
                         // 4 MB * 45 * 1000 = 180 GB
-                        if (saveCount < 45 * 1000)
+                        if (saveCount < 4 * 45 * 1000)
                         {
                             if (L2.status == VmbFrameStatusType.VmbFrameStatusComplete)
                             {
@@ -595,6 +595,12 @@ namespace CameraViewer1
         {
             Console.WriteLine("Child Thread Start!");
 
+            double avg_min = 255;
+            double avg_max = 0;
+            double avg_mean = 0;
+            ulong avg_mean_count = 0;
+            ulong missed_frames = 0;
+
 
             StreamWriter F = new StreamWriter(ImgSavePath + "\\result.csv", false);
             //F.WriteLine("{0}, {1}, {2}, {3}, {4}, {5}, ", "Missed Frame", idx, 0, "NG", 0, 0);
@@ -614,7 +620,8 @@ namespace CameraViewer1
             foreach (FileInfo NextFile in files)
             {
                 filesName[i] = NextFile.Name;
-                i++; 
+                i++;
+
             }
             Array.Sort(filesName);
 
@@ -639,6 +646,8 @@ namespace CameraViewer1
                         Console.WriteLine("file: {0}, {1}, {2}, {3}, {4}, avg: {5}", "Missed Frame", idx, 0, "NG", 0, 0);
                         F.WriteLine("{0}, {1,7}, {2,16}, {3}, {4}, {5:000.0000000000}, {6}, ", "Missed Frame", idx, 0, "NG", 0, 0, 0);
 
+                        missed_frames++;
+
                     }
                 }
 
@@ -651,7 +660,14 @@ namespace CameraViewer1
                     image.Dispose();
 
                     Console.WriteLine("file: {0}, {1}, {2}, {3}, {4}, avg: {5}", nextFile, frameid, timestamp, strStatus, average, avgColor.Green);
-                    F.WriteLine("{0}, {1,7}, {2,16}, {3}, {4}, {5:000.0000000000}, {6}, ", nextFile, frameid, timestamp, strStatus, average, avgColor.Green, centerColor.Green); 
+                    F.WriteLine("{0}, {1,7}, {2,16}, {3}, {4}, {5:000.0000000000}, {6}, ", nextFile, frameid, timestamp, strStatus, average, avgColor.Green, centerColor.Green);
+
+                    avg_mean_count++;
+                    avg_mean += centerColor.Green;
+                    if (centerColor.Green > avg_max)
+                        avg_max = centerColor.Green;
+                    if (centerColor.Green < avg_min)
+                        avg_min = centerColor.Green;
                 }
 
 
@@ -662,10 +678,26 @@ namespace CameraViewer1
 
             F.Close();
             Console.WriteLine("Child Thread Ended!");
+
+            // 计算平均灰度值中线值
+            avg_mean = avg_mean / avg_mean_count;
+
+            Console.WriteLine("------------------------------------------------------");
+
+            Console.WriteLine("Missed Frames : {0}", missed_frames);
+            Console.WriteLine("avg_mean      : {0:000.000000000}", avg_mean);
+            Console.WriteLine("avg_min       : {0:000}", avg_min);
+            Console.WriteLine("avg_max       : {0:000}", avg_max);
+
+            Console.WriteLine("------------------------------------------------------");
+
         }
 
         private String[] ParseFileName(String name)
         {
+            if (name == null)
+                return new string[4];
+
             String[] strParts = { "0", "0", "NG", "0" };
             String filename = name.Replace(".bmp", "");
             return filename.Split('-'); 
