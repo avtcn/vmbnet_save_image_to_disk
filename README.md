@@ -1,14 +1,7 @@
 # vimba_csharp_save_image_to_disk
-Save freerun images into ssd disk for verification
-
-
-
+Save freerun images into ssd disk for verification or other algorithms processing.  
 
 plot "truking-log.csv" every ::2 u 2:6 w l title "FirstFrame" lc "blue", "truking-log.csv" every ::2 u 2:8 w l title "16Frames" lc "#FF0000",  "truking-log.csv" every ::2 u 2:10 w l title "ImageProceTime" lc "gray"
-
-
-
-
 
 
 
