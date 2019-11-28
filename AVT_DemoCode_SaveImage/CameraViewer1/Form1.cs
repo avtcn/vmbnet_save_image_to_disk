@@ -294,7 +294,10 @@ namespace CameraViewer1
 
             if (status == VmbFrameStatusType.VmbFrameStatusComplete)
             {
-                m_PictureBox.Image = img;
+                if (frameCount < 2)
+                {
+                    m_PictureBox.Image = img;
+                }
             }
             else
             {
@@ -383,6 +386,12 @@ namespace CameraViewer1
                                 L2.MyImg.Save(strPath, ImageFormat.Bmp); 
                             }
                         }
+
+                        if (saveCount % 1000 == 0)
+                        {
+                            Console.WriteLine("saveCount = " + saveCount);
+                        }
+
 
                         saveCount += 1;                     
                     }
