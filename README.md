@@ -40,3 +40,8 @@ plot "result.csv" every ::2 u 2:6 w l title "Average Gray" lc "blue" axis x1y1, 
 
 
 ```
+
+## Application: Gray Value of each saved images  
+![AVT-frames-stability.png](AVT-frames-stability.png)
+
+
