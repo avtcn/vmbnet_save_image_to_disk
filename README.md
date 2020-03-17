@@ -3,6 +3,10 @@ Save freerun images into ssd disk for verification or other algorithms processin
 连续保存相机拍摄的所有图片到电脑硬盘，以备后续分析处理。  
 另外也可以用来排除相机拍摄的图像是否正常，等。  
 
+## 相机设置
+* 自由采集模式  
+* mono8 或者 RGB8Packed 图像格式  
+
 ## 自由采集并存储到电脑硬盘
 a. 设置存储目录并找钩  
 b. 打开相机  
