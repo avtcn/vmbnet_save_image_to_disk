@@ -3,6 +3,16 @@ Save freerun images into ssd disk for verification or other algorithms processin
 连续保存相机拍摄的所有图片到电脑硬盘，以备后续分析处理。  
 另外也可以用来排除相机拍摄的图像是否正常，等。  
 
+## 自由采集并存储到电脑硬盘
+a. 设置存储目录并找钩  
+b. 打开相机  
+c. 开始采集  
+
+## 软件触发并存储到电脑硬盘
+a. 设置存储目录并找钩  
+b. 打开相机  
+c. 设置软件触发及其循环周期，例如1000ms  
+d. 开始采集  
 
 # Show data in Plot from result.csv
 
