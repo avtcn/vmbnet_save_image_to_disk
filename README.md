@@ -1,8 +1,7 @@
 # vimba_csharp_save_image_to_disk
 Save freerun images into ssd disk for verification or other algorithms processing.  
-
-plot "truking-log.csv" every ::2 u 2:6 w l title "FirstFrame" lc "blue", "truking-log.csv" every ::2 u 2:8 w l title "16Frames" lc "#FF0000",  "truking-log.csv" every ::2 u 2:10 w l title "ImageProceTime" lc "gray"
-
+连续保存相机拍摄的所有图片到电脑硬盘，以备后续分析处理。  
+另外也可以用来排除相机拍摄的图像是否正常，等。  
 
 
 # Show data in Plot from result.csv
@@ -40,3 +39,8 @@ plot "result.csv" every ::2 u 2:6 w l title "Average Gray" lc "blue" axis x1y1, 
 
 
 ```
+
+## Application: Gray Value of each saved images  
+![AVT-frames-stability.png](AVT-frames-stability.png)
+
+
