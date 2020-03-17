@@ -113,16 +113,14 @@ namespace CameraViewer1
                 m_Vimba = vimba;
                 //m_Vimba.OnCameraListChanged += OnCameraListChange;
 
-                /*
                 try
                 {
-                    //UpdateCameraList();
+                    UpdateCameraList();
                 }
                 catch (Exception exception)
                 {
                     LogError("Could not update camera list. Reason: " + exception.Message);
                 }
-                */
                 Init_Camera();
                 // updateControls();
 
@@ -387,7 +385,7 @@ namespace CameraViewer1
                             }
                         }
 
-                        if (saveCount % 1000 == 0)
+                        if (saveCount % 100 == 0)
                         {
                             Console.WriteLine("saveCount = " + saveCount);
                         }
@@ -492,7 +490,8 @@ namespace CameraViewer1
             while (sendSoftTrigger)
             {
                 Thread.Sleep(SoftTri_interval);
-                tB_Log.AppendText(string.Format("{0:mm:ss.fff}sendcommand", DateTime.Now) + "\r\n");
+                //tB_Log.AppendText(string.Format("{0:mm:ss.fff}sendcommand", DateTime.Now) + "\r\n");
+                System.Diagnostics.Debug.WriteLine(string.Format("{0:mm:ss.fff}sendcommand", DateTime.Now) + "\r\n");
                 Camera1.SendSoftwareTrigger();
             }
         }
