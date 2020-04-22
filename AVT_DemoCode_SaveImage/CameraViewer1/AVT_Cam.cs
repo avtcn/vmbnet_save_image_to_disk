@@ -276,7 +276,10 @@ namespace CameraViewer1
         {
             if (IsOpen)
             {
-                return m_Cam.Features["ExposureTimeAbs"].FloatValue;
+                if (m_Cam.Features["StreamType"].EnumValue == "USB3")
+                    return m_Cam.Features["ExposureTime"].FloatValue;
+                else
+                    return m_Cam.Features["ExposureTimeAbs"].FloatValue;
             }
             else
             {
