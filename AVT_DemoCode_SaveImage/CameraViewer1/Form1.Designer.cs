@@ -82,10 +82,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.m_PictureBox.BackColor = System.Drawing.Color.Navy;
-            this.m_PictureBox.Location = new System.Drawing.Point(4, 11);
+            this.m_PictureBox.Location = new System.Drawing.Point(3, 8);
             this.m_PictureBox.Margin = new System.Windows.Forms.Padding(0);
             this.m_PictureBox.Name = "m_PictureBox";
-            this.m_PictureBox.Size = new System.Drawing.Size(776, 553);
+            this.m_PictureBox.Size = new System.Drawing.Size(582, 415);
             this.m_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.m_PictureBox.TabIndex = 3;
             this.m_PictureBox.TabStop = false;
@@ -95,11 +95,12 @@
             this.tB_Log.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tB_Log.Location = new System.Drawing.Point(7, 23);
+            this.tB_Log.Location = new System.Drawing.Point(5, 17);
+            this.tB_Log.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tB_Log.Multiline = true;
             this.tB_Log.Name = "tB_Log";
             this.tB_Log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tB_Log.Size = new System.Drawing.Size(761, 189);
+            this.tB_Log.Size = new System.Drawing.Size(572, 143);
             this.tB_Log.TabIndex = 6;
             // 
             // panel_Left
@@ -110,8 +111,9 @@
             this.panel_Left.Controls.Add(this.m_PictureBox);
             this.panel_Left.Controls.Add(this.Log);
             this.panel_Left.Location = new System.Drawing.Point(-1, 0);
+            this.panel_Left.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel_Left.Name = "panel_Left";
-            this.panel_Left.Size = new System.Drawing.Size(791, 792);
+            this.panel_Left.Size = new System.Drawing.Size(593, 594);
             this.panel_Left.TabIndex = 9;
             this.panel_Left.Resize += new System.EventHandler(this.panel_Left_Resize);
             // 
@@ -120,11 +122,9 @@
             this.Log.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Log.Controls.Add(this.tB_Log);
-            this.Log.Location = new System.Drawing.Point(4, 568);
-            this.Log.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Log.Location = new System.Drawing.Point(3, 426);
             this.Log.Name = "Log";
-            this.Log.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Log.Size = new System.Drawing.Size(776, 219);
+            this.Log.Size = new System.Drawing.Size(582, 164);
             this.Log.TabIndex = 25;
             this.Log.TabStop = false;
             this.Log.Text = "Log";
@@ -133,11 +133,9 @@
             // 
             this.groupBox1.Controls.Add(this.p_SetCam1);
             this.groupBox1.Controls.Add(this.bT_OpenCamera);
-            this.groupBox1.Location = new System.Drawing.Point(4, 376);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(3, 282);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(461, 412);
+            this.groupBox1.Size = new System.Drawing.Size(346, 309);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "相机操作";
@@ -153,51 +151,46 @@
             this.p_SetCam1.Controls.Add(this.trackBar1);
             this.p_SetCam1.Controls.Add(this.bT_Acqure);
             this.p_SetCam1.Controls.Add(this.gBx_Cam1Tri);
-            this.p_SetCam1.Location = new System.Drawing.Point(5, 72);
-            this.p_SetCam1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.p_SetCam1.Location = new System.Drawing.Point(4, 54);
             this.p_SetCam1.Name = "p_SetCam1";
-            this.p_SetCam1.Size = new System.Drawing.Size(448, 333);
+            this.p_SetCam1.Size = new System.Drawing.Size(336, 250);
             this.p_SetCam1.TabIndex = 24;
             // 
             // lB_expTime
             // 
             this.lB_expTime.AutoSize = true;
-            this.lB_expTime.Location = new System.Drawing.Point(336, 63);
-            this.lB_expTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lB_expTime.Location = new System.Drawing.Point(252, 47);
             this.lB_expTime.Name = "lB_expTime";
-            this.lB_expTime.Size = new System.Drawing.Size(59, 17);
+            this.lB_expTime.Size = new System.Drawing.Size(53, 12);
             this.lB_expTime.TabIndex = 27;
             this.lB_expTime.Text = "1500 μs";
             // 
             // bT_Acqsingle
             // 
-            this.bT_Acqsingle.Location = new System.Drawing.Point(255, 7);
-            this.bT_Acqsingle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bT_Acqsingle.Location = new System.Drawing.Point(191, 5);
             this.bT_Acqsingle.Name = "bT_Acqsingle";
-            this.bT_Acqsingle.Size = new System.Drawing.Size(133, 28);
+            this.bT_Acqsingle.Size = new System.Drawing.Size(129, 21);
             this.bT_Acqsingle.TabIndex = 26;
-            this.bT_Acqsingle.Text = "单张采图/拍照";
+            this.bT_Acqsingle.Text = "单张采图/拍照 &C";
             this.bT_Acqsingle.UseVisualStyleBackColor = true;
             this.bT_Acqsingle.Click += new System.EventHandler(this.bT_Acqsingle_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 63);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(10, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 17);
+            this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 25;
             this.label1.Text = "曝光时间";
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(89, 59);
-            this.trackBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBar1.Location = new System.Drawing.Point(67, 44);
             this.trackBar1.Maximum = 80000;
             this.trackBar1.Minimum = 71;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(239, 56);
+            this.trackBar1.Size = new System.Drawing.Size(179, 45);
             this.trackBar1.TabIndex = 25;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar1.Value = 100;
@@ -205,10 +198,9 @@
             // 
             // bT_Acqure
             // 
-            this.bT_Acqure.Location = new System.Drawing.Point(4, 7);
-            this.bT_Acqure.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bT_Acqure.Location = new System.Drawing.Point(3, 5);
             this.bT_Acqure.Name = "bT_Acqure";
-            this.bT_Acqure.Size = new System.Drawing.Size(159, 28);
+            this.bT_Acqure.Size = new System.Drawing.Size(119, 21);
             this.bT_Acqure.TabIndex = 22;
             this.bT_Acqure.Text = "开始采集/OnLine";
             this.bT_Acqure.UseVisualStyleBackColor = true;
@@ -226,11 +218,9 @@
             this.gBx_Cam1Tri.Controls.Add(this.rBt_SoftTri);
             this.gBx_Cam1Tri.Controls.Add(this.rBt_HardTri);
             this.gBx_Cam1Tri.Controls.Add(this.rBt_Freerun);
-            this.gBx_Cam1Tri.Location = new System.Drawing.Point(4, 116);
-            this.gBx_Cam1Tri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gBx_Cam1Tri.Location = new System.Drawing.Point(3, 87);
             this.gBx_Cam1Tri.Name = "gBx_Cam1Tri";
-            this.gBx_Cam1Tri.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gBx_Cam1Tri.Size = new System.Drawing.Size(440, 217);
+            this.gBx_Cam1Tri.Size = new System.Drawing.Size(330, 163);
             this.gBx_Cam1Tri.TabIndex = 23;
             this.gBx_Cam1Tri.TabStop = false;
             this.gBx_Cam1Tri.Text = "触发设置";
@@ -238,17 +228,15 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(211, 104);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(158, 78);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 17);
+            this.label4.Size = new System.Drawing.Size(71, 12);
             this.label4.TabIndex = 33;
-            this.label4.Text = "软触发间隔（ms)：";
+            this.label4.Text = "间隔（ms)：";
             // 
             // Num_softTri
             // 
-            this.Num_softTri.Location = new System.Drawing.Point(334, 101);
-            this.Num_softTri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Num_softTri.Location = new System.Drawing.Point(250, 76);
             this.Num_softTri.Maximum = new decimal(new int[] {
             -727379969,
             232,
@@ -260,7 +248,7 @@
             0,
             0});
             this.Num_softTri.Name = "Num_softTri";
-            this.Num_softTri.Size = new System.Drawing.Size(109, 22);
+            this.Num_softTri.Size = new System.Drawing.Size(82, 21);
             this.Num_softTri.TabIndex = 32;
             this.Num_softTri.Value = new decimal(new int[] {
             100,
@@ -274,19 +262,17 @@
             this.panel_setRate.Controls.Add(this.tB_setRate);
             this.panel_setRate.Controls.Add(this.tb_maxRate);
             this.panel_setRate.Controls.Add(this.label3);
-            this.panel_setRate.Location = new System.Drawing.Point(215, 131);
-            this.panel_setRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel_setRate.Location = new System.Drawing.Point(161, 98);
             this.panel_setRate.Name = "panel_setRate";
-            this.panel_setRate.Size = new System.Drawing.Size(217, 69);
+            this.panel_setRate.Size = new System.Drawing.Size(163, 52);
             this.panel_setRate.TabIndex = 31;
             this.panel_setRate.Visible = false;
             // 
             // bt_setRate
             // 
-            this.bt_setRate.Location = new System.Drawing.Point(16, 4);
-            this.bt_setRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_setRate.Location = new System.Drawing.Point(12, 3);
             this.bt_setRate.Name = "bt_setRate";
-            this.bt_setRate.Size = new System.Drawing.Size(100, 28);
+            this.bt_setRate.Size = new System.Drawing.Size(75, 21);
             this.bt_setRate.TabIndex = 30;
             this.bt_setRate.Text = "设定帧率";
             this.bt_setRate.UseVisualStyleBackColor = true;
@@ -294,38 +280,34 @@
             // 
             // tB_setRate
             // 
-            this.tB_setRate.Location = new System.Drawing.Point(141, 4);
-            this.tB_setRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tB_setRate.Location = new System.Drawing.Point(106, 3);
             this.tB_setRate.Name = "tB_setRate";
-            this.tB_setRate.Size = new System.Drawing.Size(65, 22);
+            this.tB_setRate.Size = new System.Drawing.Size(50, 21);
             this.tB_setRate.TabIndex = 28;
             // 
             // tb_maxRate
             // 
-            this.tb_maxRate.Location = new System.Drawing.Point(141, 37);
-            this.tb_maxRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_maxRate.Location = new System.Drawing.Point(106, 28);
             this.tb_maxRate.Name = "tb_maxRate";
             this.tb_maxRate.ReadOnly = true;
-            this.tb_maxRate.Size = new System.Drawing.Size(65, 22);
+            this.tb_maxRate.Size = new System.Drawing.Size(50, 21);
             this.tb_maxRate.TabIndex = 27;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 40);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(9, 30);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 17);
+            this.label3.Size = new System.Drawing.Size(89, 12);
             this.label3.TabIndex = 29;
             this.label3.Text = "最大允许帧率：";
             // 
             // rBt_FixTri
             // 
             this.rBt_FixTri.AutoSize = true;
-            this.rBt_FixTri.Location = new System.Drawing.Point(85, 133);
-            this.rBt_FixTri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rBt_FixTri.Location = new System.Drawing.Point(64, 100);
             this.rBt_FixTri.Name = "rBt_FixTri";
-            this.rBt_FixTri.Size = new System.Drawing.Size(85, 21);
+            this.rBt_FixTri.Size = new System.Drawing.Size(71, 16);
             this.rBt_FixTri.TabIndex = 26;
             this.rBt_FixTri.TabStop = true;
             this.rBt_FixTri.Text = "固定帧率";
@@ -335,10 +317,9 @@
             // rBt_SoftTri
             // 
             this.rBt_SoftTri.AutoSize = true;
-            this.rBt_SoftTri.Location = new System.Drawing.Point(85, 101);
-            this.rBt_SoftTri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rBt_SoftTri.Location = new System.Drawing.Point(64, 76);
             this.rBt_SoftTri.Name = "rBt_SoftTri";
-            this.rBt_SoftTri.Size = new System.Drawing.Size(71, 21);
+            this.rBt_SoftTri.Size = new System.Drawing.Size(59, 16);
             this.rBt_SoftTri.TabIndex = 25;
             this.rBt_SoftTri.TabStop = true;
             this.rBt_SoftTri.Text = "软触发";
@@ -348,10 +329,9 @@
             // rBt_HardTri
             // 
             this.rBt_HardTri.AutoSize = true;
-            this.rBt_HardTri.Location = new System.Drawing.Point(85, 69);
-            this.rBt_HardTri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rBt_HardTri.Location = new System.Drawing.Point(64, 52);
             this.rBt_HardTri.Name = "rBt_HardTri";
-            this.rBt_HardTri.Size = new System.Drawing.Size(85, 21);
+            this.rBt_HardTri.Size = new System.Drawing.Size(71, 16);
             this.rBt_HardTri.TabIndex = 24;
             this.rBt_HardTri.Text = "硬件触发";
             this.rBt_HardTri.UseVisualStyleBackColor = true;
@@ -361,10 +341,9 @@
             // 
             this.rBt_Freerun.AutoSize = true;
             this.rBt_Freerun.Checked = true;
-            this.rBt_Freerun.Location = new System.Drawing.Point(85, 37);
-            this.rBt_Freerun.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rBt_Freerun.Location = new System.Drawing.Point(64, 28);
             this.rBt_Freerun.Name = "rBt_Freerun";
-            this.rBt_Freerun.Size = new System.Drawing.Size(85, 21);
+            this.rBt_Freerun.Size = new System.Drawing.Size(71, 16);
             this.rBt_Freerun.TabIndex = 23;
             this.rBt_Freerun.TabStop = true;
             this.rBt_Freerun.Text = "自由运行";
@@ -373,10 +352,9 @@
             // 
             // bT_OpenCamera
             // 
-            this.bT_OpenCamera.Location = new System.Drawing.Point(8, 36);
-            this.bT_OpenCamera.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bT_OpenCamera.Location = new System.Drawing.Point(6, 27);
             this.bT_OpenCamera.Name = "bT_OpenCamera";
-            this.bT_OpenCamera.Size = new System.Drawing.Size(100, 28);
+            this.bT_OpenCamera.Size = new System.Drawing.Size(75, 21);
             this.bT_OpenCamera.TabIndex = 20;
             this.bT_OpenCamera.Text = "打开相机";
             this.bT_OpenCamera.UseVisualStyleBackColor = true;
@@ -397,18 +375,16 @@
             this.panel_Right.Controls.Add(this.cB_SaveImage);
             this.panel_Right.Controls.Add(this.groupBox2);
             this.panel_Right.Controls.Add(this.groupBox1);
-            this.panel_Right.Location = new System.Drawing.Point(796, 3);
-            this.panel_Right.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel_Right.Location = new System.Drawing.Point(597, 2);
             this.panel_Right.Name = "panel_Right";
-            this.panel_Right.Size = new System.Drawing.Size(469, 792);
+            this.panel_Right.Size = new System.Drawing.Size(352, 594);
             this.panel_Right.TabIndex = 28;
             // 
             // button_images_analyze
             // 
-            this.button_images_analyze.Location = new System.Drawing.Point(4, 295);
-            this.button_images_analyze.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_images_analyze.Location = new System.Drawing.Point(3, 221);
             this.button_images_analyze.Name = "button_images_analyze";
-            this.button_images_analyze.Size = new System.Drawing.Size(143, 31);
+            this.button_images_analyze.Size = new System.Drawing.Size(107, 23);
             this.button_images_analyze.TabIndex = 30;
             this.button_images_analyze.Text = "图像质量分析";
             this.button_images_analyze.UseVisualStyleBackColor = true;
@@ -417,28 +393,25 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(0, 263);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(0, 197);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 17);
+            this.label2.Size = new System.Drawing.Size(59, 12);
             this.label2.TabIndex = 29;
             this.label2.Text = "存图路径:";
             // 
             // tb_SavePath
             // 
-            this.tb_SavePath.Location = new System.Drawing.Point(87, 259);
-            this.tb_SavePath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_SavePath.Location = new System.Drawing.Point(65, 194);
             this.tb_SavePath.Name = "tb_SavePath";
             this.tb_SavePath.ReadOnly = true;
-            this.tb_SavePath.Size = new System.Drawing.Size(223, 22);
+            this.tb_SavePath.Size = new System.Drawing.Size(168, 21);
             this.tb_SavePath.TabIndex = 28;
             // 
             // bT_SelectSavePath
             // 
-            this.bT_SelectSavePath.Location = new System.Drawing.Point(315, 259);
-            this.bT_SelectSavePath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bT_SelectSavePath.Location = new System.Drawing.Point(236, 194);
             this.bT_SelectSavePath.Name = "bT_SelectSavePath";
-            this.bT_SelectSavePath.Size = new System.Drawing.Size(52, 28);
+            this.bT_SelectSavePath.Size = new System.Drawing.Size(39, 21);
             this.bT_SelectSavePath.TabIndex = 27;
             this.bT_SelectSavePath.Text = "浏览";
             this.bT_SelectSavePath.UseVisualStyleBackColor = true;
@@ -447,10 +420,9 @@
             // cB_SaveImage
             // 
             this.cB_SaveImage.AutoSize = true;
-            this.cB_SaveImage.Location = new System.Drawing.Point(3, 237);
-            this.cB_SaveImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cB_SaveImage.Location = new System.Drawing.Point(2, 178);
             this.cB_SaveImage.Name = "cB_SaveImage";
-            this.cB_SaveImage.Size = new System.Drawing.Size(86, 21);
+            this.cB_SaveImage.Size = new System.Drawing.Size(72, 16);
             this.cB_SaveImage.TabIndex = 26;
             this.cB_SaveImage.Text = "保存图片";
             this.cB_SaveImage.UseVisualStyleBackColor = true;
@@ -460,9 +432,11 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.List_Cam);
-            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Location = new System.Drawing.Point(2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(463, 227);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(347, 170);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "相机列表";
@@ -473,20 +447,22 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.List_Cam.FormattingEnabled = true;
-            this.List_Cam.ItemHeight = 16;
-            this.List_Cam.Location = new System.Drawing.Point(8, 21);
+            this.List_Cam.ItemHeight = 12;
+            this.List_Cam.Location = new System.Drawing.Point(6, 16);
+            this.List_Cam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.List_Cam.Name = "List_Cam";
-            this.List_Cam.Size = new System.Drawing.Size(451, 196);
+            this.List_Cam.Size = new System.Drawing.Size(339, 148);
             this.List_Cam.TabIndex = 7;
             this.List_Cam.SelectedIndexChanged += new System.EventHandler(this.List_Cam_SelectedIndexChanged);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1265, 795);
+            this.ClientSize = new System.Drawing.Size(949, 596);
             this.Controls.Add(this.panel_Right);
             this.Controls.Add(this.panel_Left);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "AVTCamera_存储图像及图像质量测试";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);

@@ -517,6 +517,13 @@ namespace CameraViewer1
                     rBt_Freerun.Checked = true;
                 }
                 m_PictureBox.Image = Camera1.AcquireSingleImage();
+
+                saveCount = saveCount + 1;
+
+                string filename = String.Format("{0:D10}.bmp", saveCount);
+                filename = ImgSavePath + "" + filename; 
+                m_PictureBox.Image.Save(filename);
+
                 
             }
             catch { }
