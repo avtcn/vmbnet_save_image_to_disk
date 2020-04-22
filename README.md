@@ -1,4 +1,4 @@
-# vimba_csharp_save_image_to_disk
+# vimba_csharp_save_image_to_disk - 连续存储图片到硬盘，或者按键单次拍照并存储
 Save freerun images into ssd disk for verification or other algorithms processing.  
 连续保存相机拍摄的所有图片到电脑硬盘，以备后续分析处理。  
 另外也可以用来排除相机拍摄的图像是否正常，等。  
