@@ -28,7 +28,7 @@ namespace CameraViewer1
         double maxRate = 0;
         string defaultPath = "";
         //string ImgSavePath = "E:\\image_saves_200GB\\";
-        string ImgSavePath = "D:\\temp\\image_saves_200GB\\";
+        string ImgSavePath = "C:\\temp\\";
 
         bool sendSoftTrigger = false;
 
