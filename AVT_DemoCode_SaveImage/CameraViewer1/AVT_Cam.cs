@@ -361,7 +361,10 @@ namespace CameraViewer1
         {
 
             //long start = DateTime.Now.Ticks;
-            if (VmbFrameStatusType.VmbFrameStatusComplete == frame.ReceiveStatus)
+            if (VmbFrameStatusType.VmbFrameStatusComplete == frame.ReceiveStatus 
+                && frame.Height > 0
+                && frame.Width > 0
+                )
             {
                 Image img = null;
 
@@ -373,11 +376,13 @@ namespace CameraViewer1
                 ImageHandler(img, timestamp, frame.FrameID, frame.ReceiveStatus);  //changed by Lemon 0521              
             }
             else { 
+                /*
                 // for bad frame, also record it
                 ulong timestamp = frame.Timestamp;//added by Lemon 0521 
                 // For incomplete frame, only default image will be saved
                 Image img = null; 
                 ImageHandler(img, timestamp, frame.FrameID, frame.ReceiveStatus);  //changed by Lemon 0521              
+                */
             }
 
             try
