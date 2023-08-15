@@ -83,8 +83,11 @@ namespace CameraViewer1
             try
             {
                 Camera1 = new AVT_Cam();
+
                 // Camera1.m_Cam  = m_Vimba.GetCameraByID("192.168.0.45");//两种方式都可以
-                Cur_CameraID = m_Vimba.Cameras[0].Id;
+                if(Cur_CameraID == null)
+                    Cur_CameraID = m_Vimba.Cameras[0].Id;
+
                 if (Cur_CameraID != null)
                 {
                     Camera1.m_Cam = m_Vimba.GetCameraByID(Cur_CameraID);
@@ -387,7 +390,7 @@ namespace CameraViewer1
 
                         if (saveCount % 100 == 0)
                         {
-                            Console.WriteLine("saveCount = " + saveCount);
+                            Console.WriteLine("saveCount = " + saveCount + ", queue count: " + count);
                         }
 
 
@@ -551,6 +554,9 @@ namespace CameraViewer1
             if (List_Cam.Items.Count > 0)
             {
                 Cur_CameraID = List_Cam.SelectedItem.ToString();
+                Console.WriteLine("Selected camera : " + Cur_CameraID);
+                LogMessage("Selected camera : " + Cur_CameraID);
+
                 Init_Camera();
             }
             else

@@ -276,7 +276,7 @@ namespace CameraViewer1
         {
             if (IsOpen)
             {
-                if (m_Cam.Features["DeviceModelName"].StringValue.Contains("Alvium"))
+                if (m_Cam.Features.ContainsName("ExposureTime"))
                     return m_Cam.Features["ExposureTime"].FloatValue;
                 else
                     return m_Cam.Features["ExposureTimeAbs"].FloatValue;
