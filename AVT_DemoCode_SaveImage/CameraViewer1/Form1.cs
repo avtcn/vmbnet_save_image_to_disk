@@ -359,7 +359,7 @@ namespace CameraViewer1
                     lock (lockSavemode)
                     {
                         // 4 MB * 45 * 1000 = 180 GB
-                        if (saveCount < 4 * 45 * 1000)
+                        if (saveCount < 15 * 3600 * 5) // 120G max disk, 4.5 hours
                         {
                             if (L2.status == VmbFrameStatusType.VmbFrameStatusComplete)
                             {
